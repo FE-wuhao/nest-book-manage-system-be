@@ -6,7 +6,7 @@ import { DbModule } from 'src/db/db.module'
 @Module({
   imports: [
     DbModule.register({
-      path: 'src/jsonDB/users.json'
+      path: 'src/files/json/users.json'
     })
   ],
   controllers: [UserController],
