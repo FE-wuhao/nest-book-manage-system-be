@@ -1,0 +1,30 @@
+### 添加图书
+POST http://localhost:3000/book HTTP/1.1
+content-type: application/json
+
+{
+    "name": "三国演义",
+    "author": "罗贯中",
+    "description": "三国演义是中国古代四大名著之一，讲述了三国时期的历史故事。",
+    "cover": ""
+}
+
+### 删除图书
+DELETE http://localhost:3000/book/5nsvk3rhe HTTP/1.1
+
+### 更新图书
+PATCH http://localhost:3000/book/5nsvk3rhe HTTP/1.1
+content-type: application/json
+
+{
+    "name": "三国演义2",
+    "author": "罗贯中2",
+    "description": "三国演义是中国古代四大名著之一，讲述了三国时期的历史故事。2",
+    "cover": ""
+}
+
+### 获取所有图书
+GET http://localhost:3000/book HTTP/1.1
+
+### 获取单个图书
+GET http://localhost:3000/book/5nsvk3rhe HTTP/1.1
