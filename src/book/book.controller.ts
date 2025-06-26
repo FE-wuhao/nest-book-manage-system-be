@@ -8,7 +8,8 @@ import {
   Delete,
   UploadedFile,
   UseInterceptors,
-  BadRequestException
+  BadRequestException,
+  Query
 } from '@nestjs/common'
 import { BookService } from './book.service'
 import { AddBookDto } from './dto/add-book.dto'
@@ -36,8 +37,8 @@ export class BookController {
   }
 
   @Get()
-  list() {
-    return this.bookService.list()
+  list(@Query('name') name: string) {
+    return this.bookService.list(name)
   }
 
   @Get(':id')
@@ -83,6 +84,6 @@ export class BookController {
     @UploadedFile() file: Express.Multer.File
   ) {
     // 这里只需处理业务逻辑，比如返回文件路径或保存到数据库
-    return file.path
+    return `img/${file.filename}`
   }
 }

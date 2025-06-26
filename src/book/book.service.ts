@@ -44,8 +44,12 @@ export class BookService {
     return books[index]
   }
 
-  async list() {
-    return await this.dbService.read()
+  async list(name: string = '') {
+    const books = await this.dbService.read()
+    if (name) {
+      return books.filter(book => book.name.includes(name))
+    }
+    return books
   }
 
   async read(id: string) {
